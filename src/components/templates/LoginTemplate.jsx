@@ -1,21 +1,22 @@
 import styled from "styled-components";
-import { Btnsave, v } from "../../index";
-
+import { Btnsave, v, useAuthStore } from "../../index";
 export function LoginTemplate() {
+  const { signInWithGoogle } = useAuthStore();
   return (
     <Container imgfondo={v.imagenfondo}>
       <div className="contentCard">
-        <span className="version">Version 1.0</span>
+        <span className="version">versión 1.0</span>
         <div className="contentImg">
-          <img src={v.logo} alt="" />
+          <img src={v.logo} />
         </div>
         <Titulo>Cerdyn</Titulo>
-        <p className="frase">Toma el control de tus 💵 gastos e 💰 ingresos</p>
+        <p className="frase">Toma el control de tus 💵gastos e 💰ingresos</p>
         <ContainerBtn>
           <Btnsave
             titulo="Iniciar con google"
             icono={<v.iconogoogle />}
             bgcolor={v.colorSecundario}
+            funcion={signInWithGoogle}
           />
         </ContainerBtn>
       </div>
@@ -39,6 +40,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin: 20px;
     box-shadow: 8px 5px 18px 3px rgba(0, 0, 0, 0.35);
     .version {
       color: #727272;
@@ -67,12 +69,10 @@ const Container = styled.div`
     }
   }
 `;
-
 const Titulo = styled.span`
   font-size: 5rem;
   font-weight: 700;
 `;
-
 const ContainerBtn = styled.div`
   display: flex;
   justify-content: center;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-export function HomeTemplate() {
+export function Menuambur() {
   return (
     <Container>
-      <h1>Componente</h1>
+      <h1>Menuambur</h1>
     </Container>
   );
 }
