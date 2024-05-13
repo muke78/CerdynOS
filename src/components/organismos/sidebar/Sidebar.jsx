@@ -1,10 +1,18 @@
 import styled from "styled-components";
-import { v, LinksArray } from "../../../index";
+import {
+  v,
+  LinksArray,
+  SecondarylinksArray,
+  SidebarCard,
+} from "../../../index";
 import { NavLink } from "react-router-dom";
 export function Sidebar({ state, setState }) {
   return (
-    <Main>
-      <Container isOpen={state}>
+    <Main isOpen={state}>
+      <span className="Sidebarbutton" onClick={() => setState(!state)}>
+        {<v.iconoflechaderecha />}
+      </span>
+      <Container isOpen={state} className={state ? "active" : ""}>
         <div className="LogoContent">
           <div className="imgcontent">
             <img src={v.logo} alt="" />
@@ -21,11 +29,27 @@ export function Sidebar({ state, setState }) {
               className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
             >
               <span className="Linkicon">{icon}</span>
-              <span>{label}</span>
+              {state && <span>{label}</span>}
             </NavLink>
           </div>
         ))}
         <Divider />
+        {SecondarylinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            >
+              <span className="Linkicon">{icon}</span>
+              {state && <span>{label}</span>}
+            </NavLink>
+          </div>
+        ))}
+        <Divider />
+        {state && <SidebarCard />}
       </Container>
     </Main>
   );
@@ -35,8 +59,23 @@ const Container = styled.div`
   background: ${(props) => props.theme.bg};
   position: fixed;
   padding-top: 20px;
-  z-index: 100;
+  z-index: 1;
   height: 100%;
+  width: 65px;
+  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colorScroll};
+    border-radius: 10px;
+  }
+  &.active {
+    width: 220px;
+  }
   .LogoContent {
     display: flex;
     justify-content: center;
@@ -96,6 +135,7 @@ const Container = styled.div`
         }
       }
       &.active {
+        color: ${(props) => props.theme.bg5};
         &::before {
           content: "";
           position: absolute;
@@ -110,7 +150,28 @@ const Container = styled.div`
   }
 `;
 
-const Main = styled.div``;
+const Main = styled.div`
+  .Sidebarbutton {
+    position: fixed;
+    top: 70px;
+    left: 42px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: ${(props) => props.theme.bgtgderecha};
+    color: ${(props) => props.theme.text};
+    box-shadow: 0 0 4px ${(props) => props.theme.bg3},
+      0 0 7px ${(props) => props.theme.bg};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 2;
+    transform: ${({ isOpen }) =>
+      isOpen ? `translateX(162px) rotate(3.142rad)` : `initial`};
+  }
+`;
 
 const Divider = styled.div`
   height: 1px;
