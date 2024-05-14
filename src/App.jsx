@@ -5,13 +5,16 @@ import {
   AuthContextProvider,
   Sidebar,
   Device,
-  Menuambur,
+  // Menuambur,
 } from "./index";
+import { useLocation } from "react-router-dom";
 import { createContext, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 export const ThemeContext = createContext(null);
 function App() {
+  const { pathname } = useLocation();
+
   const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,17 +24,22 @@ function App() {
       <ThemeContext.Provider value={{ setTheme, theme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <Container className={sidebarOpen ? "active" : ""}>
-              <div className="ContentSidebar">
-                <Sidebar state={sidebarOpen} setState={setSidebarOpen} />
-              </div>
-              <div className="Contentmenuambur">
-                <Menuambur />
-              </div>
-              <Containerbody>
-                <MyRoutes />
-              </Containerbody>
-            </Container>
+            {pathname != "/login" ? (
+              <Container className={sidebarOpen ? "active" : ""}>
+                <div className="ContentSidebar">
+                  <Sidebar state={sidebarOpen} setState={setSidebarOpen} />
+                </div>
+                <div className="Contentmenuambur">
+                  {/* <Menuambur /> */}
+                </div>
+                <Containerbody>
+                  <MyRoutes />
+                </Containerbody>
+              </Container>
+            ) : (
+              <MyRoutes />
+            )}
+
             <ReactQueryDevtools initialIsOpen={true} />
           </AuthContextProvider>
         </ThemeProvider>
@@ -45,7 +53,7 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   background: ${({ theme }) => theme.bgtotal};
   transition: all 0.3s ease-in-out;
-  
+
   .ContentSidebar {
     display: none;
   }
