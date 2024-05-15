@@ -5,12 +5,15 @@ export function Home() {
   const { user } = UserAuth();
   return (
     <Container>
-      <h1>Bienvenido Home {user.full_name}</h1>
-      <img src={user.picture} />
-      <button onClick={signout}>Cerrar</button>
+      <h1 className="text">Bienvenido Home {user.full_name}</h1>
+      {/* <img src={user.picture} />
+      <button onClick={signout}>Cerrar</button> */}
     </Container>
   );
 }
 const Container = styled.div`
   height: 100vh;
+  .text {
+    color: ${({ theme }) => theme.text};
+  }
 `;
