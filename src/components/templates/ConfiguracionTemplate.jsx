@@ -7,6 +7,7 @@ import {
   useUsuariosStore,
   ListaGenerica,
   TemasData,
+  Btnsave,
 } from "../../index";
 import { useState } from "react";
 
@@ -17,7 +18,7 @@ export function ConfiguracionTemplate() {
   const [stateListaPaises, setStateListaPaises] = useState(false);
   const [stateListaTemas, setStateListaTemas] = useState(false);
 
-  const { datausuarios } = useUsuariosStore();
+  const { datausuarios, editartemamonedauser } = useUsuariosStore();
   //Pais y moneda
   const moneda = select.symbol ? select.symbol : datausuarios.moneda;
   const pais = select.countryName ? select.countryName : datausuarios.pais;
@@ -30,6 +31,18 @@ export function ConfiguracionTemplate() {
   const iconoinicial = selectTema.icono ? selectTema.icono : iconobd;
   const temaSeleccionado = iconoinicial + " " + temainicial;
 
+  //Funcion editar
+  const editar = async () => {
+    const themeElegido = selectTema.descripcion === "light" ? "0" : "1";
+    const p = {
+      tema: themeElegido,
+      moneda: moneda,
+      pais: pais,
+      id: datausuarios.id,
+    };
+    await editartemamonedauser(p);
+  };
+
   return (
     <Container>
       <header className="header">
@@ -37,10 +50,8 @@ export function ConfiguracionTemplate() {
           stateConfig={{ state: state, setState: () => setState(!state) }}
         />
       </header>
-      <section className="area1">
-        <h1>AJUSTES</h1>
-      </section>
       <section className="area2">
+        <h1>AJUSTES</h1>
         <ContentCard>
           <span>Moneda: </span>
           <Selector
@@ -72,13 +83,19 @@ export function ConfiguracionTemplate() {
             />
           )}
         </ContentCard>
+        <Btnsave
+          titulo="Guardar"
+          bgcolor={v.colorselector}
+          icono={<v.iconoguardar />}
+          funcion={editar}
+        />
       </section>
-      <section className="main"></section>
     </Container>
   );
 }
+
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   padding: 15px;
   width: 100%;
   background: ${({ theme }) => theme.bgtotal};
@@ -86,26 +103,13 @@ const Container = styled.div`
   display: grid;
   grid-template:
     "header" 100px
-    "area1" 100px
-    "area2" 50px
-    "main" auto;
+    "area2" auto;
 
   .header {
     grid-area: header;
     /* background-color: rgba(103, 93, 241, 0.14); */
     display: flex;
     align-items: center;
-  }
-
-  .area1 {
-    grid-area: area1;
-    /* background-color: rgba(229, 67, 26, 0.14); */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: start;
-    gap: 30px;
-    font-size: 2rem;
   }
 
   .area2 {
@@ -116,10 +120,10 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: start;
     gap: 30px;
-  }
-  .main {
-    grid-area: main;
-    /* background-color: rgba(179, 46, 241, 0.14); */
+    align-self: center;
+    h1 {
+      font-size: 3rem;
+    }
   }
 `;
 

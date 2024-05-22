@@ -122,7 +122,6 @@ const Container = styled.div`
     .Links {
       display: flex;
       align-items: center;
-      justify-content: center;
       text-decoration: none;
       padding: calc(${() => v.smSpacing} - 2px) 0;
       color: ${(props) => props.theme.text};
