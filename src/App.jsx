@@ -7,6 +7,7 @@ import {
   Device,
   useUsuariosStore,
   Login,
+  SpinnerLoader
   // Menuambur,
 } from "./index";
 import { useLocation } from "react-router-dom";
@@ -30,7 +31,7 @@ function App() {
     queryFn: () => mostrarUsuarios(),
   });
   if (isLoading) {
-    return <h1> Cargando...</h1>;
+    return <SpinnerLoader />;
   }
   if (error) {
     return <h1> Error</h1>;

@@ -8,7 +8,7 @@ export function ListaMenuDesplegable({ data, top, funcion }) {
           <ItemsDesplegable
             key={index}
             item={item}
-            funcion={() => funcion(item.tipo)}
+            funcion={() => funcion(item)}
           />
         );
       })}
@@ -24,4 +24,5 @@ const Container = styled.div`
   border-radius: 22px;
   top: ${(props) => props.top};
   box-shadow: ${() => v.boxshadowGray};
+  z-index: 3;
 `;

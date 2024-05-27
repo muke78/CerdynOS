@@ -14,12 +14,13 @@ export const MostrarUsuarios = async () => {
     const { error, data } = await supabase
       .from("usuarios")
       .select()
-      .eq("idAuthSupabase", idAuthSupbase);
+      .eq("idAuthSupabase", idAuthSupbase)
+      .maybeSingle();
     // if (error) {
     //   alert("MostrarUsuarios", error);
     // }
     if (data) {
-      return data[0];
+      return data;
     }
   } catch (error) {
     // alert(error.error_description || error.message + "MostrarUsuarios");
@@ -39,7 +40,6 @@ export async function EditarTemaMonedaUser(p) {
       showConfirmButton: false,
       timer: 1500,
     });
-    
   } catch (error) {
     alert(error.error_description || error.message + "EditarTemaMonedaUser");
   }
