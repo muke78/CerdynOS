@@ -40,7 +40,7 @@ const Container = styled.div`
     }
 
     &::before {
-      content: "Agregar";
+      content: "Agregar nuevo registro";
       font-size: 13px;
       font-weight: 500;
       position: absolute;
