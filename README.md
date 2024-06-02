@@ -38,3 +38,4 @@ npm install
 - `styled-components`: "^6.0.7",
 - `sweetalert2`: "^11.6.13",
 - `zustand`: "^4.4.1",
+- `react-lottie`: "^1.2.4",
