@@ -36,7 +36,7 @@ export async function MostrarCategorias(p) {
       .eq("idusuario", p.idusuario)
       .eq("tipo", p.tipo)
       .order("id", { ascending: false });
-      return data;
+    return data;
   } catch (error) {}
 }
 
@@ -65,6 +65,27 @@ export async function EliminarCategorias(p) {
     if (error) {
       alert("Error al eliminar", error);
     }
+  } catch (error) {
+    alert(error.error_description || error.message + "eliminar categorias");
+  }
+}
+
+export async function EliminarCategoriasTodas(p) {
+  try {
+    const { error } = await supabase
+      .from("categorias")
+      .delete()
+      .eq("idusuario", p.idusuario);
+    if (error) {
+      alert("Error al eliminar", error);
+    }
+    Swal.fire({
+      icon: "success",
+      title: "Datos reseteados",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    
   } catch (error) {
     alert(error.error_description || error.message + "eliminar categorias");
   }

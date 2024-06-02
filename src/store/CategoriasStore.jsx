@@ -4,6 +4,7 @@ import {
   InsertarCategorias,
   EditarCategorias,
   EliminarCategorias,
+  EliminarCategoriasTodas,
 } from "../index";
 
 export const useCategoriasStore = create((set, get) => ({
@@ -26,6 +27,11 @@ export const useCategoriasStore = create((set, get) => ({
   },
   eliminarCategoria: async (p) => {
     await EliminarCategorias(p);
+    const { mostrarCategorias } = get();
+    set(mostrarCategorias(p));
+  },
+  eliminarCategoriasTodas: async (p) => {
+    await EliminarCategoriasTodas(p);
     const { mostrarCategorias } = get();
     set(mostrarCategorias(p));
   },

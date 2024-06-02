@@ -4,27 +4,27 @@ export function BtnCircular({
   width,
   height,
   bgcolor,
-  textColor,
+  textcolor,
   fontsize,
-  translateX,
-  translateY,
+  translatex,
+  translatey,
 }) {
   return (
     <Container
-      bgcolor={bgcolor}
-      textColor={textColor}
+      $bgcolor={bgcolor}
+      $textcolor={textcolor}
       height={height}
       width={width}
-      fontsize={fontsize}
-      translateX={translateX}
-      translateY={translateY}
+      $fontsize={fontsize}
+      $translatex={translatex}
+      $translatey={translatey}
     >
       <span>{icono}</span>
     </Container>
   );
 }
 const Container = styled.div`
-  background-color: ${(props) => props.bgcolor};
+  background: ${(props) => props.$bgcolor};
   min-width: ${(props) => props.width};
   min-height: ${(props) => props.height};
   border-radius: 50%;
@@ -32,12 +32,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  transform: translatex(${(props) => props.translateX})
-    translateY(${(props) => props.translateY});
+  transform: translateX(${(props) => props.$translatex})
+    translateY(${(props) => props.$translatey});
 
   span {
-    font-size: ${(props) => props.fontsize};
+    font-size: ${(props) => props.$fontsize};
     text-align: center;
-    color: ${(props) => props.textColor};
+    color: ${(props) => props.$textcolor};
   }
 `;

@@ -8,6 +8,7 @@ import {
   ListaGenerica,
   TemasData,
   Btnsave,
+  CardEliminarData
 } from "../../index";
 import { useState } from "react";
 
@@ -89,6 +90,7 @@ export function ConfiguracionTemplate() {
           icono={<v.iconoguardar />}
           funcion={editar}
         />
+        <CardEliminarData />
       </section>
     </Container>
   );
@@ -120,7 +122,6 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: start;
     gap: 30px;
-    align-self: center;
     h1 {
       font-size: 3rem;
     }
