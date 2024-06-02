@@ -14,10 +14,11 @@ export function TablaCategorias({
   setdataSelect,
   setAccion,
 }) {
+  if (data.length == 0) return;
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(10);
   const mx = data.length / porPagina;
-  console.log(mx)
+  console.log(mx);
   const maximo = mx < 1 ? 1 : mx;
 
   const { eliminarCategoria } = useCategoriasStore();

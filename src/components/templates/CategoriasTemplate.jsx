@@ -10,7 +10,10 @@ import {
   v,
   TablaCategorias,
   RegistrarCategorias,
+  Lottieanimacion,
 } from "../../index";
+import vacioverde from "../../assets/vacioverde.json";
+import vaciorojo from "../../assets/vaciorojo.json";
 import { useState } from "react";
 export function CategoriasTemplate({ data }) {
   const [openRegistro, SetopenRegistro] = useState(false);
@@ -18,7 +21,7 @@ export function CategoriasTemplate({ data }) {
   const [dataSelect, setdataSelect] = useState([]);
   const [state, setState] = useState(false);
   const [stateTipo, setStateTipo] = useState(false);
-  const { colorCategoria, tituloBtnDes, bgCategoria, setTipo } =
+  const { colorCategoria, tituloBtnDes, bgCategoria, tipo, setTipo } =
     useOperaciones();
   function cambiarTipo(p) {
     setTipo(p);
@@ -92,6 +95,13 @@ export function CategoriasTemplate({ data }) {
         </ContentFiltro>
       </section>
       <section className="main">
+        {data.length == 0 && (
+          <Lottieanimacion
+            alto="300"
+            ancho="300"
+            animacion={tipo == "i" ? vacioverde : vaciorojo}
+          />
+        )}
         <TablaCategorias
           data={data}
           SetopenRegistro={SetopenRegistro}

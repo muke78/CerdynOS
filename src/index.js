@@ -12,6 +12,7 @@ export * from './components/moleculas/InputBuscadorLista';
 export * from './components/moleculas/ItemsDesplegable';
 export * from './components/moleculas/ListaGenerica';
 export * from './components/moleculas/ListaMenuDesplegable';
+export * from './components/moleculas/Lottieanimacion';
 export * from './components/moleculas/Spinner';
 export * from './components/moleculas/SpinnerLoader';
 export * from './components/organismos/CalendarioLineal';

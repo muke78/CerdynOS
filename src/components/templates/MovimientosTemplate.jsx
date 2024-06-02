@@ -16,7 +16,11 @@ import {
   ListaMenuDesplegable,
   BtnFiltro,
   RegistrarMovimientos,
+  SpinnerLoader,
+  Lottieanimacion,
 } from "../../index";
+import vacioverde from "../../assets/vacioverde.json";
+import vaciorojo from "../../assets/vaciorojo.json";
 import { Device } from "../../styles/breakpoints";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -69,7 +73,7 @@ export function MovimientosTemplate() {
     setdataSelect([]);
   }
 
-  useQuery({
+  const { isLoading, error } = useQuery({
     queryKey: [
       "mostrar movimientos mes año",
       { año: año, mes: mes, idusuario: idusuario, tipocategoria: tipo },
@@ -92,6 +96,13 @@ export function MovimientosTemplate() {
     queryKey: ["mostrar categorias", { idusuario: idusuario, tipo: tipo }],
     queryFn: () => mostrarCategorias({ idusuario: idusuario, tipo: tipo }),
   });
+
+  if (isLoading) {
+    return <SpinnerLoader />;
+  }
+  if (error) {
+    return <h1>Error</h1>;
+  }
 
   return (
     <Container>
@@ -168,6 +179,13 @@ export function MovimientosTemplate() {
         />
       </section>
       <section className="main">
+        {datamovimientos.length == 0 && (
+          <Lottieanimacion
+            alto="300"
+            ancho="300"
+            animacion={tipo == "i" ? vacioverde : vaciorojo}
+          />
+        )}
         <TablaMovimientos
           data={datamovimientos}
           SetopenRegistro={SetopenRegistro}

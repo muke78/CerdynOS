@@ -15,9 +15,7 @@ export function TablaMovimientos({
   setdataSelect,
   setAccion,
 }) {
-  if (data == null) {
-    return;
-  }
+  if (data.length == 0) return;
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(10);
   const mx = data.length / porPagina;
