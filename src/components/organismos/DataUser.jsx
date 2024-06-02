@@ -7,14 +7,26 @@ import {
   DesplegableUser,
   useAuthStore,
 } from "../../index";
-
+import Swal from "sweetalert2";
 export function DataUser({ stateConfig }) {
   const { user } = UserAuth();
   const { signout } = useAuthStore();
 
-  const funcionXtipo = async (p) => {
+  const funcionXtipo = (p) => {
     if (p.tipo === "cerrarsesion") {
-      await signout();
+      Swal.fire({
+        title: "¿Estás seguro(a) de cerrar la sesion?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si cerrar la sesion",
+        cancelButtonText: "No, quedarme",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await signout();
+        }
+      });
     }
   };
 
