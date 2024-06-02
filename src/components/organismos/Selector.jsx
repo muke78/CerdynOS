@@ -23,6 +23,8 @@ const Container = styled.div`
   gap: 10px;
   transition: 0.3s;
   font-weight: 600;
+
+  box-shadow: 4px 9px 20px -12px ${(props) => props.color};
   .open {
     transition: 0.3s;
     transform: rotate(0deg);

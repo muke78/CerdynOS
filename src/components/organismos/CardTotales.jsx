@@ -21,6 +21,8 @@ export function CardTotales({ color, total, title, icono }) {
           fontsize="25px"
           icono={icono}
           textcolor="#fff"
+          translatex="-45px"
+          translatey="-15px"
         />
       </section>
     </Container>

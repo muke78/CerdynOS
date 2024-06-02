@@ -4,6 +4,7 @@ import { v } from "../styles/variables";
 export const useOperaciones = create((set, get) => ({
   tipo: "i",
   tituloBtnDes: "Categorias ingresos",
+  tituloBtnDesMovimientos: "Ingresos",
   colorCategoria: v.colorIngresos,
   bgCategoria: v.colorbgingresos,
   año: null,
@@ -18,6 +19,7 @@ export const useOperaciones = create((set, get) => ({
     set({ tipo: p.tipo });
     set({
       tituloBtnDes: p.text,
+      tituloBtnDesMovimientos: p.text,
     });
     set({
       colorCategoria: p.color,

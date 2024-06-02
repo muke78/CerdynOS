@@ -9,16 +9,20 @@ import {
 
 export const useCategoriasStore = create((set, get) => ({
   datacategoria: [],
+  categoriaItemSelect: [],
+  parametros: {},
   mostrarCategorias: async (p) => {
     const res = await MostrarCategorias(p);
     set({ datacategoria: res });
+    set({ categoriaItemSelect: res[0] });
     return res;
   },
 
   insertarCategorias: async (p) => {
     await InsertarCategorias(p);
     const { mostrarCategorias } = get();
-    set(mostrarCategorias(p));
+    const { parametros } = get();
+    set(mostrarCategorias(parametros));
   },
   editarCategoria: async (p) => {
     await EditarCategorias(p);

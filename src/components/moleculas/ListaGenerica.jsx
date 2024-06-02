@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Device, BtnCerrar } from "../../index";
-export function ListaGenerica({ data, setState, funcion }) {
+import { Device, v, BtnCerrar } from "../../index";
+export function ListaGenerica({ data, setState, funcion, scroll, bottom }) {
   function seleccionar(p) {
     funcion(p);
     setState();
   }
   return (
-    <Container>
+    <Container scroll={scroll} $bottom={bottom}>
       <section className="contentClose">
         <BtnCerrar funcion={setState} />
       </section>
@@ -30,7 +30,7 @@ const Container = styled.div`
   color: ${({ theme }) => theme.text};
   position: absolute;
   margin-bottom: 15px;
-  bottom: 88%;
+  bottom: ${(props) => props.$bottom};
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -38,6 +38,9 @@ const Container = styled.div`
   z-index: 3;
   @media ${() => Device.tablet} {
     width: 400px;
+  }
+  .contentItems {
+    overflow-y: ${(props) => props.scroll};
   }
 `;
 const ItemContainer = styled.div`

@@ -2,11 +2,11 @@
 
 Control mde gastos es un plataforma para que lleves un control de los que gastas hecho con REACT y Styled Compontens
 
- ## Version
+## Version
 
- La version del proyecto es la 1.0.0
+La version del proyecto es la 1.0.0
 
- ## Instalacion del proyecto
+## Instalacion del proyecto
 
 ```bash
 #
@@ -24,8 +24,11 @@ npm install
 - `preview`: Permite previsualizar tu proyecto en un entorno de producción local.
 
 ## Dependecias
+
 - `@supabase`: "^2.33.1",
 - `@tanstack/react-query-devtools`: "^5.36.0",
+- `@mui/material`: "^5.15.19",
+- `@emotion/styled`: "^11.11.5",
 - `emoji-picker-react`: "^4.9.3",
 - `iso-country-currency`: "^0.7.2",
 - `react-color`: "^2.19.3",
