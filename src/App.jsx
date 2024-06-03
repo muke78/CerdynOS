@@ -7,13 +7,14 @@ import {
   Device,
   useUsuariosStore,
   Login,
-  SpinnerLoader
-  // Menuambur,
+  SpinnerLoader,
+  Menuambur,
 } from "./index";
 import { useLocation } from "react-router-dom";
 import { createContext, useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { styled } from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 
 export const ThemeContext = createContext(null);
@@ -44,9 +45,14 @@ function App() {
             {pathname != "/login" ? (
               <Container className={sidebarOpen ? "active" : ""}>
                 <div className="ContentSidebar">
-                  <Sidebar state={sidebarOpen} setState={setSidebarOpen} />
+                  <Sidebar
+                    state={sidebarOpen}
+                    setState={() => setSidebarOpen(!sidebarOpen)}
+                  />
                 </div>
-                <div className="Contentmenuambur">{/* <Menuambur /> */}</div>
+                <div className="ContentMenuambur">
+                  <Menuambur />
+                </div>
                 <Containerbody>
                   <MyRoutes />
                 </Containerbody>
@@ -67,7 +73,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   background: ${({ theme }) => theme.bgtotal};
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   .ContentSidebar {
     display: none;
@@ -97,5 +103,4 @@ const Containerbody = styled.div`
     grid-column: 2;
   }
 `;
-
 export default App;

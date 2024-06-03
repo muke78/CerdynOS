@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Swal from "sweetalert2";
-import { Btnsave, v, useCategoriasStore, useUsuariosStore } from "../../index";
+import { Btnsave } from "../moleculas/Btnsave";
+import { useCategoriasStore, useUsuariosStore } from "../../index";
+import { v } from "../../styles/variables";
 
 export function CardEliminarData() {
   const { eliminarCategoriasTodas } = useCategoriasStore();
@@ -51,8 +53,6 @@ const Container = styled.div`
   border-radius: 10px;
   border: 2px solid rgba(255, 99, 99, 0.87);
   height: 100%;
-  padding: 10px;
-  gap: 10px;
   background: rgb(42, 1, 1);
   background: linear-gradient(
     18deg,
@@ -62,6 +62,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 10px;
+  gap: 20px;
+
   h2 {
     color: rgba(252, 69, 69, 0.72);
   }

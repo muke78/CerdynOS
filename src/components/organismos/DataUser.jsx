@@ -8,6 +8,7 @@ import {
   useAuthStore,
 } from "../../index";
 import Swal from "sweetalert2";
+
 export function DataUser({ stateConfig }) {
   const { user } = UserAuth();
   const { signout } = useAuthStore();
@@ -33,7 +34,7 @@ export function DataUser({ stateConfig }) {
   return (
     <Container onClick={stateConfig.setState}>
       <div className="imgContainer">
-        <img src={user.picture} alt="" />
+        <img src={user.picture}/>
       </div>
 
       <BtnCircular

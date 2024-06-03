@@ -42,10 +42,11 @@ export function MovimientosTemplate() {
     año,
     mes,
     bgCategoria,
-    tituloBtnDes,
     tituloBtnDesMovimientos,
   } = useOperaciones();
+
   const { idusuario } = useUsuariosStore();
+
   const {
     totalMesAño,
     totalMesAñoPagados,
@@ -97,12 +98,12 @@ export function MovimientosTemplate() {
     queryFn: () => mostrarCategorias({ idusuario: idusuario, tipo: tipo }),
   });
 
-  if (isLoading) {
-    return <SpinnerLoader />;
-  }
-  if (error) {
-    return <h1>Error</h1>;
-  }
+  // if (isLoading) {
+  //   return <SpinnerLoader />;
+  // }
+  // if (error) {
+  //   return <h1>Error</h1>;
+  // }
 
   return (
     <Container>

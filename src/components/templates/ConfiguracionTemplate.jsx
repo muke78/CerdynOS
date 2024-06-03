@@ -8,7 +8,7 @@ import {
   ListaGenerica,
   TemasData,
   Btnsave,
-  CardEliminarData
+  CardEliminarData,
 } from "../../index";
 import { useState } from "react";
 
@@ -78,6 +78,7 @@ export function ConfiguracionTemplate() {
           />
           {stateListaTemas && (
             <ListaGenerica
+              bottom="88%"
               data={TemasData}
               setState={() => setStateListaTemas(!stateListaTemas)}
               funcion={setSelectTema}
@@ -122,12 +123,12 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: start;
     gap: 30px;
+   
     h1 {
       font-size: 3rem;
     }
   }
 `;
-
 const ContentCard = styled.div`
   display: flex;
   text-align: start;

@@ -12,6 +12,7 @@ export function Btndesplegable({ text, bgcolor, textcolor, funcion }) {
 }
 const Container = styled.div`
   display: flex;
+
   background-color: ${(props) => props.$bgcolor};
   color: ${(props) => props.$textcolor};
   font-weight: 500;
@@ -22,11 +23,12 @@ const Container = styled.div`
   transition: all 0.2s ease;
   position: relative;
   .containerText {
+    gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   &:hover {
-    background-color: rgba(77, 77, 77, 0.5);
+    background-color: #fff;
   }
 `;

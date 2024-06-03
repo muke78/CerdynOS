@@ -15,12 +15,14 @@ import {
 import vacioverde from "../../assets/vacioverde.json";
 import vaciorojo from "../../assets/vaciorojo.json";
 import { useState } from "react";
+
 export function CategoriasTemplate({ data }) {
   const [openRegistro, SetopenRegistro] = useState(false);
   const [accion, setAccion] = useState("");
   const [dataSelect, setdataSelect] = useState([]);
   const [state, setState] = useState(false);
   const [stateTipo, setStateTipo] = useState(false);
+
   const { colorCategoria, tituloBtnDes, bgCategoria, tipo, setTipo } =
     useOperaciones();
   function cambiarTipo(p) {
@@ -131,14 +133,12 @@ const Container = styled.div`
     display: flex;
     align-items: center;
   }
-
   .tipo {
     grid-area: tipo;
     /* background-color: rgba(229, 67, 26, 0.14); */
     display: flex;
     align-items: center;
   }
-
   .area2 {
     grid-area: area2;
     /* background-color: rgba(77, 237, 106, 0.14); */
@@ -151,7 +151,6 @@ const Container = styled.div`
     /* background-color: rgba(179, 46, 241, 0.14); */
   }
 `;
-
 const ContentFiltro = styled.div`
   display: flex;
   flex-wrap: wrap;

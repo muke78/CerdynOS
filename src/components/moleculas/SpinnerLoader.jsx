@@ -19,6 +19,6 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: rgb(31, 31, 31);
+  background: ${({ theme }) => theme.bgtotal};
   transform: all 0.3s;
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Btnsave, v, useAuthStore } from "../../index";
+
 export function LoginTemplate() {
   const { signInWithGoogle } = useAuthStore();
   return (
@@ -42,6 +43,9 @@ const Container = styled.div`
     padding: 20px;
     margin: 20px;
     box-shadow: 8px 5px 18px 3px rgba(0, 0, 0, 0.35);
+    justify-content:center;
+    width:auto;
+    height:80%;
     .version {
       color: #727272;
       text-align: start;

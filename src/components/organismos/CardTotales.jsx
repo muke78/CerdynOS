@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { v, useUsuariosStore, BtnCircular } from "../../index";
+
 export function CardTotales({ color, total, title, icono }) {
   const { datausuarios } = useUsuariosStore();
   return (
@@ -7,7 +8,7 @@ export function CardTotales({ color, total, title, icono }) {
       <section className="contentTextos">
         <section>
           <span className="title">{title}</span>
-          <b>{<v.iconoFlechabajo />} </b>
+          <b>{<v.iconoFlechabajo />}</b>
         </section>
         <span className="total">
           {datausuarios.moneda} {total}

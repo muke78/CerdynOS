@@ -6,14 +6,15 @@ import {
   SidebarCard,
 } from "../../../index";
 import { NavLink } from "react-router-dom";
+
 export function Sidebar({ state, setState }) {
   return (
-    <Main isOpen={state}>
+    <Main $isopen={state.toString()}>
       <span className="Sidebarbutton" onClick={() => setState(!state)}>
         {<v.iconoflechaderecha />}
       </span>
-      <Container isOpen={state} className={state ? "active" : ""}>
-        <div className="LogoContent">
+      <Container $isopen={state.toString()} className={state ? "active" : ""}>
+        <div className="Logocontent">
           <div className="imgcontent">
             <img src={v.logo} alt="" />
           </div>
@@ -29,7 +30,10 @@ export function Sidebar({ state, setState }) {
               className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
             >
               <span className="Linkicon">{icon}</span>
-              {state && <span>{label}</span>}
+              <span className={state ? "label_ver" : "label_oculto"}>
+                {label}
+              </span>
+              {/* {state && <span>{label}</span>} */}
             </NavLink>
           </div>
         ))}
@@ -62,7 +66,7 @@ const Container = styled.div`
   z-index: 1;
   height: 100%;
   width: 65px;
-  transition: all 0.3s ease-in-out;
+  transition: 0.1s ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {
@@ -73,10 +77,11 @@ const Container = styled.div`
     background-color: ${(props) => props.theme.colorScroll};
     border-radius: 10px;
   }
+
   &.active {
     width: 220px;
   }
-  .LogoContent {
+  .Logocontent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +93,8 @@ const Container = styled.div`
       width: 30px;
       cursor: pointer;
       transition: 0.3s ease;
-      transform: ${({ isOpen }) => (isOpen ? `scale(0.7)` : `scale(1.5)`)}
+      transform: ${({ $isopen }) =>
+          $isopen === "true" ? `scale(0.7)` : `scale(1.5)`}
         rotate(${({ theme }) => theme.logorotate});
       img {
         width: 100%;
@@ -96,9 +102,8 @@ const Container = styled.div`
       }
     }
     h2 {
-      display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
+      display: ${({ $isopen }) => ($isopen === "true" ? `block` : `none`)};
     }
-
     @keyframes flotar {
       0% {
         transform: translate(0, 0px);
@@ -113,7 +118,7 @@ const Container = styled.div`
   }
   .LinkContainer {
     margin: 5px 0;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
     padding: 0 5%;
     position: relative;
     &:hover {
@@ -133,8 +138,16 @@ const Container = styled.div`
           font-size: 25px;
         }
       }
+      .label_ver {
+        transition: 0.3s ease-in-out;
+        opacity: 1;
+      }
+      .label_oculto {
+        opacity: 0;
+      }
       &.active {
         color: ${(props) => props.theme.bg5};
+        font-weight: 600;
         &::before {
           content: "";
           position: absolute;
@@ -146,9 +159,11 @@ const Container = styled.div`
         }
       }
     }
+    &.active {
+      padding: 0;
+    }
   }
 `;
-
 const Main = styled.div`
   .Sidebarbutton {
     position: fixed;
@@ -158,20 +173,19 @@ const Main = styled.div`
     height: 32px;
     border-radius: 50%;
     background: ${(props) => props.theme.bgtgderecha};
-    color: ${(props) => props.theme.text};
     box-shadow: 0 0 4px ${(props) => props.theme.bg3},
       0 0 7px ${(props) => props.theme.bg};
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
     z-index: 2;
-    transform: ${({ isOpen }) =>
-      isOpen ? `translateX(162px) rotate(3.142rad)` : `initial`};
+    transform: ${({ $isopen }) =>
+      $isopen === "true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
+    color: ${(props) => props.theme.text};
   }
 `;
-
 const Divider = styled.div`
   height: 1px;
   width: 100%;

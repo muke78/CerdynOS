@@ -22,12 +22,5 @@ export function Categorias() {
   if (error) {
     return <h1>Error</h1>;
   }
-  return (
-    <CategoriasTemplate data={datacategoria}>
-      
-    </CategoriasTemplate>
-  );
+  return <CategoriasTemplate data={datacategoria}></CategoriasTemplate>;
 }
-const Container = styled.div`
-  height: 100vh;
-`;

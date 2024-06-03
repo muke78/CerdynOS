@@ -64,8 +64,8 @@ const Container = styled.div`
       color: #000;
     }
     .contentBtn {
-      position: relative;
-      margin-left: -8px;
+      position:relative;
+      margin-left:-8px;
     }
   }
 `;
