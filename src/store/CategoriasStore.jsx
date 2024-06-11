@@ -1,33 +1,30 @@
 import { create } from "zustand";
 import {
-  MostrarCategorias,
-  InsertarCategorias,
   EditarCategorias,
   EliminarCategorias,
   EliminarCategoriasTodas,
+  InsertarCategorias,
+  MostrarCategorias,
 } from "../index";
-
 export const useCategoriasStore = create((set, get) => ({
   datacategoria: [],
   categoriaItemSelect: [],
   parametros: {},
   mostrarCategorias: async (p) => {
-    const res = await MostrarCategorias(p);
-    set({ datacategoria: res });
-    set({ categoriaItemSelect: res[0] });
-    return res;
+    const response = await MostrarCategorias(p);
+    set({ parametros: p });
+    set({ datacategoria: response });
+    set({ categoriaItemSelect: response[0] });
+    return response;
   },
-
+  selectCategoria: (p) => {
+    set({ categoriaItemSelect: p });
+  },
   insertarCategorias: async (p) => {
     await InsertarCategorias(p);
     const { mostrarCategorias } = get();
     const { parametros } = get();
     set(mostrarCategorias(parametros));
-  },
-  editarCategoria: async (p) => {
-    await EditarCategorias(p);
-    const { mostrarCategorias } = get();
-    set(mostrarCategorias(p));
   },
   eliminarCategoria: async (p) => {
     await EliminarCategorias(p);
@@ -36,6 +33,11 @@ export const useCategoriasStore = create((set, get) => ({
   },
   eliminarCategoriasTodas: async (p) => {
     await EliminarCategoriasTodas(p);
+    const { mostrarCategorias } = get();
+    set(mostrarCategorias(p));
+  },
+  editarCategoria: async (p) => {
+    await EditarCategorias(p);
     const { mostrarCategorias } = get();
     set(mostrarCategorias(p));
   },

@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.config";
 import Swal from "sweetalert2";
+
 export const InsertarMovimientos = async (p) => {
   try {
     const { data, error } = await supabase
@@ -26,6 +27,7 @@ export const InsertarMovimientos = async (p) => {
     alert(error.error_description || error.message + " insertar movimientos");
   }
 };
+
 export async function EliminarMovimientos(p) {
   try {
     const { error } = await supabase
@@ -43,6 +45,18 @@ export async function EliminarMovimientos(p) {
 export async function MostrarMovimientosPorMesAño(p) {
   try {
     const { data } = await supabase.rpc("mmovimientosmesanio", {
+      anio: p.año,
+      mes: p.mes,
+      iduser: p.idusuario,
+      tipocategoria: p.tipocategoria,
+    });
+    return data;
+  } catch (error) {}
+}
+
+export async function RptMovimientosPorMesAño(p) {
+  try {
+    const { data } = await supabase.rpc("rptmovimientos_anio_mes", {
       anio: p.año,
       mes: p.mes,
       iduser: p.idusuario,

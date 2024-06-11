@@ -20,6 +20,7 @@ const months = [
 let date = new Date(),
   currYear = date.getFullYear(),
   currMonth = date.getMonth();
+  
 export function CalendarioLineal({ value, setValue, setFormatoFecha }) {
   const { colorCategoria, setMes, setAño } = useOperaciones();
   function IniciarCalendario() {

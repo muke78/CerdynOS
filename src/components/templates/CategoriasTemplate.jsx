@@ -12,18 +12,16 @@ import {
   RegistrarCategorias,
   Lottieanimacion,
 } from "../../index";
+import { useState } from "react";
 import vacioverde from "../../assets/vacioverde.json";
 import vaciorojo from "../../assets/vaciorojo.json";
-import { useState } from "react";
-
 export function CategoriasTemplate({ data }) {
   const [openRegistro, SetopenRegistro] = useState(false);
   const [accion, setAccion] = useState("");
   const [dataSelect, setdataSelect] = useState([]);
   const [state, setState] = useState(false);
   const [stateTipo, setStateTipo] = useState(false);
-
-  const { colorCategoria, tituloBtnDes, bgCategoria, tipo, setTipo } =
+  const { colorCategoria, tituloBtnDes, bgCategoria, setTipo, tipo } =
     useOperaciones();
   function cambiarTipo(p) {
     setTipo(p);
@@ -39,12 +37,10 @@ export function CategoriasTemplate({ data }) {
     setStateTipo(!stateTipo);
     setState(false);
   }
-
   function openUser() {
-    setStateTipo(false);
     setState(!state);
+    setStateTipo(false);
   }
-
   function nuevoRegistro() {
     SetopenRegistro(!openRegistro);
     setAccion("Nuevo");
@@ -63,6 +59,7 @@ export function CategoriasTemplate({ data }) {
       <header className="header">
         <Header stateConfig={{ state: state, setState: openUser }} />
       </header>
+
       <section className="tipo">
         <ContentFiltros>
           <div
@@ -71,8 +68,8 @@ export function CategoriasTemplate({ data }) {
             }}
           >
             <Btndesplegable
-              bgcolor={bgCategoria}
               textcolor={colorCategoria}
+              bgcolor={bgCategoria}
               text={tituloBtnDes}
               funcion={openTipo}
             />
@@ -89,10 +86,10 @@ export function CategoriasTemplate({ data }) {
       <section className="area2">
         <ContentFiltro>
           <BtnFiltro
+            funcion={nuevoRegistro}
             bgcolor={bgCategoria}
             textcolor={colorCategoria}
             icono={<v.agregar />}
-            funcion={nuevoRegistro}
           />
         </ContentFiltro>
       </section>
@@ -104,6 +101,7 @@ export function CategoriasTemplate({ data }) {
             animacion={tipo == "i" ? vacioverde : vaciorojo}
           />
         )}
+
         <TablaCategorias
           data={data}
           SetopenRegistro={SetopenRegistro}
