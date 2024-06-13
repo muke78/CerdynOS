@@ -34,19 +34,13 @@ export function DataUser({ stateConfig }) {
   return (
     <Container onClick={stateConfig.setState}>
       <div className="imgContainer">
-        <img src={user.picture}/>
+        <img src={user.picture} alt="Perfil google" />
       </div>
 
       <BtnCircular
-        icono={<v.iconocorona />}
-        width="25px"
-        height="25px"
-        bgcolor={`linear-gradient(15deg, rgba(255, 88, 58, 0.86) 9%, #f8bf5b 100%);`}
-        textcolor="#ffffff"
-        fontsize="11px"
-        translatex="-50px"
-        translatey="-12px"
+      // icono={<v.iconocorona />}
       />
+      <img className="corona" src={v.imagencorona} alt="Corona" />
       <span className="nombre">{user.name}</span>
       {stateConfig.state && (
         <ListaMenuDesplegable
@@ -88,6 +82,12 @@ const Container = styled.div`
   }
   &:hover {
     background-color: ${({ theme }) => theme.bg3};
+  }
+  .corona {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    transform: translateX(-54px) translateY(-12px);
   }
   .nombre {
     width: 100%;

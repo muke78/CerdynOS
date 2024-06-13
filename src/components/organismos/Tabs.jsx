@@ -4,10 +4,10 @@ import {
   v,
   Dona,
   Lineal,
+  Barras,
   useMovimientosStore,
   useOperaciones,
   useUsuariosStore,
-  Barras,
   SpinnerLoader,
 } from "../../index";
 import { useQuery } from "@tanstack/react-query";
@@ -31,6 +31,7 @@ export function Tabs() {
         borderRadius: 5,
         cutout: 30,
         minBarLength: "100px",
+        borderAlign: "inner",
         data: dataRptMovimientosAñoMes?.map((item) => item.total),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",

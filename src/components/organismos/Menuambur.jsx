@@ -13,7 +13,7 @@ export function Menuambur() {
           onClick={() => setClick(!click)}
         >
           <div className="contentLogo active">
-            <img src={v.logo} />
+            <img src={v.logo} alt="Cerdo" />
           </div>
         </HamburgerMenu>
         <Menu $click={click.toString()}>

@@ -1,5 +1,16 @@
 import styled from "styled-components";
-import { CalendarioLineal, Header, Tabs } from "../../index";
+import {
+  BtnFiltro,
+  Btndesplegable,
+  CalendarioLineal,
+  ContentFiltros,
+  Header,
+  ListaMenuDesplegable,
+  DataDesplegableMovimientos,
+  Tabs,
+  useOperaciones,
+  v,
+} from "../../index";
 import { useState } from "react";
 import dayjs from "dayjs";
 
@@ -9,6 +20,27 @@ export function InformesTemplate() {
   const [value, setValue] = useState(dayjs(Date.now()));
   const [formatoFecha, setFormatoFecha] = useState("");
 
+  const {
+    tipo,
+    setTipo,
+    colorCategoria,
+    año,
+    mes,
+    bgCategoria,
+    tituloBtnDesMovimientos,
+  } = useOperaciones();
+
+  function openTipo() {
+    setStateTipo(!stateTipo);
+    setState(false);
+  }
+
+  function cambiarTipo(p) {
+    setTipo(p);
+    setStateTipo(!stateTipo);
+    setState(false);
+  }
+
   return (
     <Container>
       <header className="header">
@@ -16,7 +48,30 @@ export function InformesTemplate() {
           stateConfig={{ state: state, setState: () => setState(!state) }}
         />
       </header>
-      <section className="area1"></section>
+      <section className="area1">
+        <ContentFiltros>
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <Btndesplegable
+              textcolor={colorCategoria}
+              bgcolor={bgCategoria}
+              text={tituloBtnDesMovimientos}
+              funcion={openTipo}
+            />
+            {stateTipo && (
+              <ListaMenuDesplegable
+                data={DataDesplegableMovimientos}
+                top="112%"
+                funcion={(p) => cambiarTipo(p)}
+              />
+            )}
+          </div>
+        </ContentFiltros>
+        <h1>Informes</h1>
+      </section>
       <section className="area2">
         <CalendarioLineal
           value={value}
@@ -41,7 +96,7 @@ const Container = styled.div`
   grid-template:
     "header" 100px
     "area1" 100px
-    "area2" 90px
+    "area2" 70px
     "main" auto;
 
   .header {
@@ -54,6 +109,7 @@ const Container = styled.div`
     grid-area: area1;
     /* background-color: rgba(229, 67, 26, 0.14); */
     display: flex;
+    gap: 20px;
     align-items: center;
   }
   .area2 {
@@ -62,6 +118,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 20px;
   }
   .main {
     grid-area: main;

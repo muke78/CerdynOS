@@ -8,6 +8,7 @@ export * from './components/moleculas/BtnCircular';
 export * from './components/moleculas/BtnFiltro';
 export * from './components/moleculas/Btndesplegable';
 export * from './components/moleculas/Btnsave';
+export * from './components/moleculas/Carousel';
 export * from './components/moleculas/InputBuscadorLista';
 export * from './components/moleculas/ItemsDesplegable';
 export * from './components/moleculas/ListaGenerica';

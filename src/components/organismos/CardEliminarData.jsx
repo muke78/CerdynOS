@@ -37,12 +37,12 @@ export function CardEliminarData() {
         *Se reseteara tambien los saldos acumulados en tus cuentas.
       </span>
       <Btnsave
-        titulo="resetear"
+        titulo="Resetear"
         bgcolor="rgba(247, 92, 92, 0.87)"
         funcion={eliminar}
       />
       <div className="contentImg">
-        <img src={v.logo} />
+        <img src={v.logo} alt="Cerdo"/>
       </div>
     </Container>
   );

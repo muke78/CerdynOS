@@ -7,6 +7,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { RiSettings3Line } from "react-icons/ri";
 import { MdExitToApp } from "react-icons/md";
 import { FcPicture } from "react-icons/fc";
+import { FaLinkedin } from "react-icons/fa";
 import { CgMathPlus } from "react-icons/cg";
 import { TbBrandSupabase } from "react-icons/tb";
 import { FaReact } from "react-icons/fa";
@@ -14,6 +15,7 @@ import { BsArrowDown, BsArrowUpShort } from "react-icons/bs";
 import { FaBalanceScale } from "react-icons/fa";
 import logo from "../assets/logocerdo.png";
 import { BsGoogle } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 import { RiCloseLine } from "react-icons/ri";
 import { BiSave } from "react-icons/bi";
 import { BsQuestionCircle } from "react-icons/bs";
@@ -24,6 +26,7 @@ import { AiOutlineCalculator } from "react-icons/ai";
 import { BsCalendarCheck } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import fondo from "../assets/fondo1.svg";
+import corona from "../assets/coro.png";
 import { GrFormPrevious, GrCaretNext } from "react-icons/gr";
 import { MdOutlineBorderAll } from "react-icons/md";
 export const v = {
@@ -78,6 +81,7 @@ export const v = {
   iconocalculadora: AiOutlineCalculator,
   iconocheck: BsCalendarCheck,
   imagenfondo: fondo,
+  imagencorona: corona,
   colorSecundario: `#DAC1FF`,
   iconoflechaderecha: IoIosArrowForward,
   colorselector: "#BF94FF",
@@ -85,4 +89,6 @@ export const v = {
   iconoprev: GrFormPrevious,
   icononext: GrCaretNext,
   iconotodos: MdOutlineBorderAll,
+  iconogihub: FaGithub,
+  iconoLinkedin: FaLinkedin,
 };

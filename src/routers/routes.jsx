@@ -1,5 +1,14 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Login, Home, ProtectedRoute, UserAuth, Configuracion, Categorias, Movimientos, Informes} from "../index";
+import {
+  Login,
+  Home,
+  ProtectedRoute,
+  UserAuth,
+  Configuracion,
+  Categorias,
+  Movimientos,
+  Informes,
+} from "../index";
 export function MyRoutes() {
   const { user } = UserAuth();
   return (

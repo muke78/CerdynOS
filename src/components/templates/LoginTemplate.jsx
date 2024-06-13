@@ -8,7 +8,7 @@ export function LoginTemplate() {
       <div className="contentCard">
         <span className="version">versión 1.0</span>
         <div className="contentImg">
-          <img src={v.logo} />
+          <img src={v.logo} alt="Cerdo" />
         </div>
         <Titulo>Cerdyn</Titulo>
         <p className="frase">Toma el control de tus 💵gastos e 💰ingresos</p>
@@ -43,9 +43,9 @@ const Container = styled.div`
     padding: 20px;
     margin: 20px;
     box-shadow: 8px 5px 18px 3px rgba(0, 0, 0, 0.35);
-    justify-content:center;
-    width:auto;
-    height:80%;
+    justify-content: center;
+    width: auto;
+    height: 80%;
     .version {
       color: #727272;
       text-align: start;

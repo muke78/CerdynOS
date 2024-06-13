@@ -16,7 +16,7 @@ export function Sidebar({ state, setState }) {
       <Container $isopen={state.toString()} className={state ? "active" : ""}>
         <div className="Logocontent">
           <div className="imgcontent">
-            <img src={v.logo} alt="" />
+            <img src={v.logo} alt="Cerdo" />
           </div>
           <h2>Cerdys</h2>
         </div>
