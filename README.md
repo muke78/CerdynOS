@@ -8,7 +8,7 @@ La version del proyecto es la 1.0.0
 
 ## Aplicacion en linea
 
-![CSS3](https://control-gastos-b1017.web.app/login)
+[Control Gastos](https://control-gastos-b1017.web.app/login)
 
 ## Instalacion del proyecto
 
