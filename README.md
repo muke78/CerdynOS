@@ -1,6 +1,6 @@
 # Control de gastos
 
-Control mde gastos es un plataforma para que lleves un control de los que gastas hecho con REACT y Styled Compontens
+Control de gastos es un plataforma para que lleves un control de los que gastas hecho con REACT y Styled Compontens
 
 ## Version
 
