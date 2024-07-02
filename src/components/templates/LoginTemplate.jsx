@@ -6,7 +6,7 @@ export function LoginTemplate() {
   return (
     <Container imgfondo={v.imagenfondo}>
       <div className="contentCard">
-        <span className="version">muke78 versión 1.1</span>
+        <span className="version">muke78 versión 1.0.1</span>
         <div className="contentImg">
           <img src={v.logo} alt="Cerdo" />
         </div>

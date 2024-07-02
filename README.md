@@ -4,7 +4,7 @@ Control mde gastos es un plataforma para que lleves un control de los que gastas
 
 ## Version
 
-La version del proyecto es la 1.0.0
+La version del proyecto es la 1.0.1
 
 ## Aplicacion en linea
 
