@@ -13,7 +13,7 @@ import { TbBrandSupabase } from "react-icons/tb";
 import { FaReact } from "react-icons/fa";
 import { BsArrowDown, BsArrowUpShort } from "react-icons/bs";
 import { FaBalanceScale } from "react-icons/fa";
-import logo from "../assets/logocerdo.png";
+import logo from "../assets/logocerdo.webp";
 import { BsGoogle } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { RiCloseLine } from "react-icons/ri";
@@ -26,7 +26,7 @@ import { AiOutlineCalculator } from "react-icons/ai";
 import { BsCalendarCheck } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import fondo from "../assets/fondo1.svg";
-import corona from "../assets/coro.png";
+import corona from "../assets/coro.webp";
 import { GrFormPrevious, GrCaretNext } from "react-icons/gr";
 import { MdOutlineBorderAll } from "react-icons/md";
 export const v = {

@@ -16,11 +16,11 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-cards";
 
-import img1 from "../../assets/Ruleta/ruleta9.png";
-import img2 from "../../assets/Ruleta/ruleta8.png";
-import img3 from "../../assets/Ruleta/ruleta5.png";
-import img4 from "../../assets/Ruleta/ruleta6.png";
-import img5 from "../../assets/Ruleta/ruleta7.png";
+import img1 from "../../assets/Ruleta/ruleta9.webp";
+import img2 from "../../assets/Ruleta/ruleta8.webp";
+import img3 from "../../assets/Ruleta/ruleta5.webp";
+import img4 from "../../assets/Ruleta/ruleta6.webp";
+import img5 from "../../assets/Ruleta/ruleta7.webp";
 import Arrow from "../../assets/Arrow.svg";
 
 export function Carousel() {
